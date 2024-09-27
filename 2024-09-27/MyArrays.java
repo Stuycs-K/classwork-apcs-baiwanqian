@@ -1,3 +1,4 @@
+public class MyArrays {
 public static String aryToString(int[] nums) {
   String aString = "[";
   for (int i=0; i < nums.length && nums.length > 0; i++) {
@@ -8,3 +9,7 @@ public static String aryToString(int[] nums) {
   }
   return aString + "]";
 }
+
+  public static void main(String[] args)
+// test cases for returnCopy
+System.out.println()
