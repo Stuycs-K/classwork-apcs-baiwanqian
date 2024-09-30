@@ -12,6 +12,11 @@ public class MyArrays {
   }
 
   public static int[] returnCopy(int[] ary) {
+    int[] copy = new int[ary.length];
+    for (int i = 0; i < ary.length; i++) {
+      copy[i] = ary[i];
+    }
+    return copy;
   }
 
   public static int[] concatArray(int[] ary1, int[] ary2) {
