@@ -54,16 +54,16 @@ public class MyArrays {
   // test cases for concatArray
     int[] ary1 = {1, 2, 3};
     int[] ary2 = {4, 5, 6};
-    int[] concatenated = concatArray(ary1, ary2);
-    System.out.println("Concatenated Arrays: " + arrayToString(concatenated));
+    int[] concatenated1 = concatArray(ary1, ary2);
+    System.out.println("Concatenated Arrays: " + arrayToString(concatenated1));
 
     int[] ary3 = {};
-    int[] concatenated = concatArray(ary1, ary3);
-    System.out.println("Concatenated Arrays: " + arrayToString(concatenated));
+    int[] concatenated2 = concatArray(ary1, ary3);
+    System.out.println("Concatenated Arrays: " + arrayToString(concatenated2));
 
     int[] ary4 = {};
-    int[] concatenated = concatArray(ary3, ary4);
-    System.out.println("Concatenated Arrays: " + arrayToString(concatenated));
+    int[] concatenated3 = concatArray(ary3, ary4);
+    System.out.println("Concatenated Arrays: " + arrayToString(concatenated3));
 
   }
 }
