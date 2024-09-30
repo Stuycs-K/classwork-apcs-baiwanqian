@@ -55,14 +55,14 @@ public class MyArrays {
     int[] ary1 = {1, 2, 3};
     int[] ary2 = {4, 5, 6};
     int[] concatenated = concatArray(ary1, ary2);
-    System.out.println("Concatenated Arrays: " + aryToString(concatenated));
+    System.out.println("Concatenated Arrays: " + arrayToString(concatenated));
 
     int[] ary2 = {};
     int[] concatenated = concatArray(ary1, ary2);
-    System.out.println("Concatenated Arrays: " + aryToString(concatenated));
+    System.out.println("Concatenated Arrays: " + arrayToString(concatenated));
 
     int[] ary1 = {};
     int[] concatenated = concatArray(ary1, ary2);
-    System.out.println("Concatenated Arrays: " + aryToString(concatenated));
+    System.out.println("Concatenated Arrays: " + arrayToString(concatenated));
 
 }
