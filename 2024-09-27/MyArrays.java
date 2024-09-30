@@ -39,17 +39,17 @@ public class MyArrays {
     System.out.println("Copy: " + arrayToString(copy));
     System.out.println("Different address: " + (original != copy));
 
-    int[] original = {};
-    int[] copy = returnCopy(original);
-    System.out.println("Original: " + arrayToString(original));
-    System.out.println("Copy: " + arrayToString(copy));
-    System.out.println("Different address: " + (original != copy));
+    int[] original1 = {};
+    int[] copy1 = returnCopy(original1);
+    System.out.println("Original: " + arrayToString(original1));
+    System.out.println("Copy: " + arrayToString(copy1));
+    System.out.println("Different address: " + (original1 != copy1));
 
-    int[] original = {1};
-    int[] copy = returnCopy(original);
-    System.out.println("Original: " + arrayToString(original));
-    System.out.println("Copy: " + arrayToString(copy));
-    System.out.println("Different address: " + (original != copy));
+    int[] original2 = {1};
+    int[] copy2 = returnCopy(original2);
+    System.out.println("Original: " + arrayToString(original2));
+    System.out.println("Copy: " + arrayToString(copy2));
+    System.out.println("Different address: " + (original2 != copy2));
 
   // test cases for concatArray
     int[] ary1 = {1, 2, 3};
@@ -57,12 +57,13 @@ public class MyArrays {
     int[] concatenated = concatArray(ary1, ary2);
     System.out.println("Concatenated Arrays: " + arrayToString(concatenated));
 
-    int[] ary2 = {};
-    int[] concatenated = concatArray(ary1, ary2);
+    int[] ary3 = {};
+    int[] concatenated = concatArray(ary1, ary3);
     System.out.println("Concatenated Arrays: " + arrayToString(concatenated));
 
-    int[] ary1 = {};
-    int[] concatenated = concatArray(ary1, ary2);
+    int[] ary4 = {};
+    int[] concatenated = concatArray(ary3, ary4);
     System.out.println("Concatenated Arrays: " + arrayToString(concatenated));
 
+  }
 }
