@@ -1,5 +1,6 @@
 // Names: Jessie Chan (jessiec39@nycstudents.net) and Christine Chen (christinec109@nycstudents.net)
 public class ArrayMethods{
+
   public static String arrToString(int[] nums){
   String s = "";
   for (int i = 0; i < nums.length; i++) {
@@ -23,7 +24,15 @@ public class ArrayMethods{
 
 public static String arrToString(int[][]ary){
   //this should use arrToString(int[])
-  return "";
+  String twoS = "["
+  for (int i = 0; i < ary.length && ary.length > 0; i++) {
+    for (int n = 0; n < ary[i].length; n++) {
+      twoS += arrToString(ary[i])
+      if (i != ary.length - 1) {
+        result += ", ";
+    }
+  }
+  return twoS + "]";
 }
 
 /*Return the sum of all of the values in the 2D array */
@@ -35,7 +44,6 @@ public static int arr2DSum(int[][]nums){
   * You may assume the array is rectangular and neither rows nor cols is 0.
   * e.g. swapRC({{1,2,3},{4,5,6}}) returns {{1,4},{2,5},{3,6}}
   */
-
 public static int[][] swapRC(int[][]nums){
   return new int[1][1];
 }
@@ -43,8 +51,34 @@ public static int[][] swapRC(int[][]nums){
 public static void main(String[] args) {
 
   //test cases for arrToSTring (2D Array)
-  System.out.println("Expected: [[2, 3, 4], [5, 6, 7], [2, 4, 9]]. output: " + arrToString(new int[][] {{2, 3, 4}, {5, 6, 7}, {2, 4, 9}});
-  System.out.println("Expected: [[], [5, 6], [2, 4, 9]]. output: " + arrToString(new int[][] {{}, {5, 6}, {2, 4, 9}});
-  }
+  int[][] nums1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+  System.out.println("Expected: [[1, 2, 3], [4, 5, 6]], [7, 8, 9]] - Output: " + arrToString(nums1));
+  int[][] nums2 = {};
+  System.out.println("Expected: [] - Output: " + arrToString(nums2));
+  int[][] nums3 = {{}, {1, 2, 3}};
+  System.out.println("Expected: [[], [1, 2, 3]] - Output: " + arrToString(nums3));
+  int[][] nums4 = {{1, 2, 3}, {}};
+  System.out.println("Expected: [[], [1, 2, 3]] - Output: " + arrToString(nums4));
 
+  // test cases for arr2DSum
+  int[][] sums1 = {{1, 2, 3}, {4, 5, 6}};
+  System.out.println("Expected: 21 - Output: " + arr2DSum(sums1));
+  int[][] sums2 = {{7, 8, 9}};
+  System.out.println("Expected: 24 - Output: " + arr2DSum(sums2));
+  int[][] sums3 = {{0, 0, 0}, {0, 0, 0}};
+  System.out.println("Expected: 0 - Output: " + arr2DSum(sums3));
+  int[][] sums4 = {};
+  System.out.println("Expected: 0 - Output: " + arr2DSum(sums4));
+  int[][] sums5 = {{}, {}};
+  System.out.println("Expected: 0 - Output: " + arr2DSum(sums5));
+
+  // test cases for swapRC
+  int[][] swap1 = {{1, 2, 3}, {4, 5, 6}};
+  System.out.println("Expected: {{1, 4}, {2, 5}, {3, 6}} - Output: " + arrToString(swapRC(swap1)));
+  int[][] swap2 = {{1, 2}, {3, 4}, {5, 6}};
+  System.out.println("Expected: {{1, 3, 5}, {2, 4, 6}} - Output: " + arrToString(swapRC(swap2)));
+  int[][] swap3 = {{12}};
+  System.out.println("Expected: {{12}}, Output: " + arrToString(swapRC(swap3)));
+
+  }
 }
