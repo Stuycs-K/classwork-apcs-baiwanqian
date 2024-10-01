@@ -26,10 +26,9 @@ public static String arrToString(int[][]ary){
   //this should use arrToString(int[])
   String twoS = "["
   for (int i = 0; i < ary.length && ary.length > 0; i++) {
-    for (int n = 0; n < ary[i].length; n++) {
-      twoS += arrToString(ary[i])
-      if (i != ary.length - 1) {
-        result += ", ";
+    twoS += arrToString(ary[i]);
+    if (i != ary.length - 1) {
+      twoS += ", ";
     }
   }
   return twoS + "]";
