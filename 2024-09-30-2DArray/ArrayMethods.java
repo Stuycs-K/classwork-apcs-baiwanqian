@@ -71,7 +71,7 @@ public static void main(String[] args) {
   int[][] nums3 = {{}, {1, 2, 3}};
   System.out.println("Expected: [[], [1, 2, 3]] - Output: " + arrToString(nums3));
   int[][] nums4 = {{1, 2, 3}, {}};
-  System.out.println("Expected: [[], [1, 2, 3]] - Output: " + arrToString(nums4));
+  System.out.println("Expected: [[1, 2, 3], []] - Output: " + arrToString(nums4));
 
   // test cases for arr2DSum
   int[][] sums1 = {{1, 2, 3}, {4, 5, 6}};
@@ -91,7 +91,7 @@ public static void main(String[] args) {
   int[][] swap2 = {{1, 2}, {3, 4}, {5, 6}};
   System.out.println("Expected: [[1, 3, 5], [2, 4, 6]] - Output: " + arrToString(swapRC(swap2)));
   int[][] swap3 = {{12}};
-  System.out.println("Expected: [[12]], Output: " + arrToString(swapRC(swap3)));
+  System.out.println("Expected: [[12]] - Output: " + arrToString(swapRC(swap3)));
 
   }
 }
