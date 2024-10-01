@@ -21,11 +21,10 @@ public class ArrayMethods{
   * You are encouraged to notice that you may want to re-use
   * previous code, but you should NOT duplicate that code. (Don't copy/paste or retype it)
   */
-
 public static String arrToString(int[][]ary){
   //this should use arrToString(int[])
-  String twoS = "["
-  for (int i = 0; i < ary.length && ary.length > 0; i++) {
+  String twoS = "[";
+  for (int i = 0; i < ary.length; i++) {
     twoS += arrToString(ary[i]);
     if (i != ary.length - 1) {
       twoS += ", ";
@@ -37,7 +36,7 @@ public static String arrToString(int[][]ary){
 /*Return the sum of all of the values in the 2D array */
 public static int arr2DSum(int[][]nums){
   //use a nested loop to solve this
-  int sum = 0
+  int sum = 0;
   for (int i = 0; i < nums.length; i++) {
     for (int n = 0; n < nums[i].length; n++) {
       sum += nums[i][n];
@@ -93,5 +92,6 @@ public static void main(String[] args) {
   System.out.println("Expected: [[1, 3, 5], [2, 4, 6]] - Output: " + arrToString(swapRC(swap2)));
   int[][] swap3 = {{12}};
   System.out.println("Expected: [[12]], Output: " + arrToString(swapRC(swap3)));
+
   }
 }
