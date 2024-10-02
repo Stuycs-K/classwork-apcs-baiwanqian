@@ -96,9 +96,9 @@ public static int[] copy(int[] row) {
 }
 
 public static int[][] copy(int[][] nums) {
-  int[][] copyArr = new int[nums.length] {
+  int[][] copyArr = new int[nums.length][] {
     for (int i = 0; i < nums.length; i++) {
-      copyArr[i] = copy(nums[i])
+      copyArr[i] = copy(nums[i]);
     }
   }
   return copyArr; //placeholder so it compiles
@@ -138,7 +138,7 @@ public static void main(String[] args) {
   // test cases for replaceNegative
   int[][] neg1 = {{-1, -9, 3}, {-4, -2, 6}, {1, 0, -3}};
   replaceNegative(neg1);
-  System.out.println("Expected: [[1, 0, 3], [0, 1, 6]], [1, 0, 1]] - Output: " + arrToString(neg1));
+  System.out.println("Expected: [[1, 0, 3], [0, 1, 6], [1, 0, 1]] - Output: " + arrToString(neg1));
   int[][] neg2 = {{-1, -9, -3}, {-4, -2, -6}, {-1, -5, -3}};
   replaceNegative(neg2);
   System.out.println("Expected: [[1, 0, 0], [0, 1, 0], [0, 0, 1]] - Output: " + arrToString(neg2));
@@ -153,23 +153,23 @@ public static void main(String[] args) {
   System.out.println("Expected: [[], [0, 1, 6]], []] - Output: " + arrToString(neg5));
 
   // test cases for copy
-  int[] original1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-  int[] copy1 = returnCopy(original1);
+  int[][] original1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+  int[][] copy1 = copy(original1);
   System.out.println("Original: " + arrToString(original1));
   System.out.println("Copy: " + arrToString(copy1));
   System.out.println("Different address: " + (original1 != copy1));
   original1[0][0] = 100;
   System.out.println("Modified Original: " + arrToString(original1));
   System.out.println("Not Modified Copy: " + arrToString(copy1));
-  int[] original2 = {{}, {4, 5, 6}, {}};
-  int[] copy2 = returnCopy(original2);
-  System.out.println("Original: " + arrayToString(original2));
+  int[][] original2 = {{}, {4, 5, 6}, {}};
+  int[][] copy2 = copy(original2);
+  System.out.println("Original: " + arrToString(original2));
   System.out.println("Copy: " + arrayToString(copy2));
   System.out.println("Different address: " + (original2 != copy2));
-  int[] original3 = {{}};
-  int[] copy3 = returnCopy(original3);
-  System.out.println("Original: " + arrayToString(original3));
-  System.out.println("Copy: " + arrayToString(copy3));
+  int[][] original3 = {{}};
+  int[][] copy3 = copy(original3);
+  System.out.println("Original: " + arrToString(original3));
+  System.out.println("Copy: " + arrToString(copy3));
   System.out.println("Different address: " + (original3 != copy3));
   }
 
