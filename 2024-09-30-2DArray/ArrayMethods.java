@@ -123,10 +123,10 @@ public static void main(String[] args) {
   // test cases for replaceNegative
   int[][] neg1 = {{-1, -9, 3}, {-4, -2, 6}, {1, 0, -3}};
   replaceNegative(neg1);
-  System.out.println("Expected: [[0, 1, 3], [0, 1, 6]], [1, 0, 1]] - Output: " + arrToString(neg1));
+  System.out.println("Expected: [[1, 0, 3], [0, 1, 6]], [1, 0, 1]] - Output: " + arrToString(neg1));
   int[][] neg2 = {{-1, -9, -3}, {-4, -2, -6}, {-1, -5, -3}};
   replaceNegative(neg2);
-  System.out.println("Expected: [[1, 0, 0], [0, 1, 0], [1, 1, 0]] - Output: " + arrToString(neg2));
+  System.out.println("Expected: [[1, 0, 0], [0, 1, 0], [0, 0, 1]] - Output: " + arrToString(neg2));
   int[][] neg3 = {{1, 2}, {3, 4}};
   replaceNegative(neg3);
   System.out.println("Expected: [[1, 2], [3, 4]] - Output: " + arrToString(neg3));
