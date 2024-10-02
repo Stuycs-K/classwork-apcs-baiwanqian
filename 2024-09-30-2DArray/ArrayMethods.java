@@ -140,9 +140,12 @@ public static void main(String[] args) {
   // test cases for copy
   int[] original1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
   int[] copy1 = returnCopy(original1);
-  System.out.println("Original: " + arrayToString(original1));
-  System.out.println("Copy: " + arrayToString(copy1));
+  System.out.println("Original: " + arrToString(original1));
+  System.out.println("Copy: " + arrToString(copy1));
   System.out.println("Different address: " + (original1 != copy1));
+  original1[0][0] = 100;
+  System.out.println("Modified Original: " + arrToString(original1));
+  System.out.println("Not Modified Copy: " + arrToString(copy1));
   int[] original2 = {{}, {4, 5, 6}, {}};
   int[] copy2 = returnCopy(original2);
   System.out.println("Original: " + arrayToString(original2));
