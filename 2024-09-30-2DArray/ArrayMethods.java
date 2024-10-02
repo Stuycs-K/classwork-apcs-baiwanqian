@@ -138,6 +138,21 @@ public static void main(String[] args) {
   System.out.println("Expected: [[], [0, 1, 6]], []] - Output: " + arrToString(neg5));
 
   // test cases for copy
+  int[] original1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+  int[] copy1 = returnCopy(original1);
+  System.out.println("Original: " + arrayToString(original1));
+  System.out.println("Copy: " + arrayToString(copy1));
+  System.out.println("Different address: " + (original1 != copy1));
+  int[] original2 = {{}, {4, 5, 6}, {}};
+  int[] copy2 = returnCopy(original2);
+  System.out.println("Original: " + arrayToString(original2));
+  System.out.println("Copy: " + arrayToString(copy2));
+  System.out.println("Different address: " + (original2 != copy2));
+  int[] original3 = {{}};
+  int[] copy3 = returnCopy(original3);
+  System.out.println("Original: " + arrayToString(original3));
+  System.out.println("Copy: " + arrayToString(copy3));
+  System.out.println("Different address: " + (original3 != copy3));
   }
 
 }
