@@ -78,7 +78,6 @@ public static void replaceNegative(int[][] vals) {
       }
     }
   }
-  return vals;
 }
 
 //4. Make a copy of the given 2d array.
@@ -123,15 +122,20 @@ public static void main(String[] args) {
 
   // test cases for replaceNegative
   int[][] neg1 = {{-1, -9, 3}, {-4, -2, 6}, {1, 0, -3}};
-  System.out.println("Expected: [[0, 1, 3], [0, 1, 6]], [1, 0, 1]] - Output: " + arrToString(replaceNegative(neg1)));
+  replaceNegative(neg1);
+  System.out.println("Expected: [[0, 1, 3], [0, 1, 6]], [1, 0, 1]] - Output: " + arrToString(neg1));
   int[][] neg2 = {{-1, -9, -3}, {-4, -2, -6}, {-1, -5, -3}};
-  System.out.println("Expected: [[1, 0, 0], [0, 1, 0], [1, 1, 0]] - Output: " + arrToString(replaceNegative(neg2)));
+  replaceNegative(neg2);
+  System.out.println("Expected: [[1, 0, 0], [0, 1, 0], [1, 1, 0]] - Output: " + arrToString(neg2));
   int[][] neg3 = {{1, 2}, {3, 4}};
-  System.out.println("Expected: [[1, 2], [3, 4]] - Output: " + arrToString(replaceNegative(neg3)));
+  replaceNegative(neg3);
+  System.out.println("Expected: [[1, 2], [3, 4]] - Output: " + arrToString(neg3));
   int[][] neg4 = {{}};
-  System.out.println("Expected: [[]] - Output: " + arrToString(replaceNegative(neg4)));
+  replaceNegative(neg4);
+  System.out.println("Expected: [[]] - Output: " + arrToString(neg4));
   int[][] neg5 = {{}, {-4, -2, 6}, {}};
-  System.out.println("Expected: [[], [0, 1, 6]], []] - Output: " + arrToString(replaceNegative(neg5)));
+  replaceNegative(neg5);
+  System.out.println("Expected: [[], [0, 1, 6]], []] - Output: " + arrToString(neg5));
 
   // test cases for copy
   }
