@@ -66,15 +66,17 @@ public static int[][] swapRC(int[][]nums){
 //-When the row number is the same as the column number replace
 //that negative with the value 1
 //-All other negatives replace with 0
-public static void replaceNegative(int[][] vals){ }
+public static void replaceNegative(int[][] vals) {
+
+}
 
 //4. Make a copy of the given 2d array.
 //When testing : make sure that changing the original does NOT change the copy.
 //DO NOT use any built in methods that "copy" an array.
 //You SHOULD write a helper method for this.
 //If you don't see a good way to do that, you should stop and look at prior methods.
-public static int[][] copy(int[][] nums){
-  return null;//placeholder so it compiles
+public static int[][] copy(int[][] nums) {
+  return null; //placeholder so it compiles
 }
 
 public static void main(String[] args) {
@@ -107,6 +109,20 @@ public static void main(String[] args) {
   System.out.println("Expected: [[1, 3, 5], [2, 4, 6]] - Output: " + arrToString(swapRC(swap2)));
   int[][] swap3 = {{12}};
   System.out.println("Expected: [[12]] - Output: " + arrToString(swapRC(swap3)));
+
+  // test cases for replaceNegative
+  int[][] neg1 = {{-1, -9, 3}, {-4, -2, 6}, {1, 0, -3}};
+  System.out.println("Expected: [[0, 1, 3], [0, 1, 6]], [1, 0, 1]] - Output: " + arrToString(replaceNegative(neg1)));
+  int[][] neg2 = {{-1, -9, -3}, {-4, -2, -6}, {-1, -5, -3}};
+  System.out.println("Expected: [[1, 0, 0], [0, 1, 0], [1, 1, 0]] - Output: " + arrToString(replaceNegative(neg2)));
+  int[][] neg3 = {{1, 2}, {3, 4}};
+  System.out.println("Expected: [[1, 2], [3, 4]] - Output: " + arrToString(replaceNegative(neg3)));
+  int[][] neg4 = {{}};
+  System.out.println("Expected: [[]] - Output: " + arrToString(replaceNegative(neg4)));
+  int[][] neg5 = {{}, {-4, -2, 6}, {}};
+  System.out.println("Expected: [[], [0, 1, 6]], []] - Output: " + arrToString(replaceNegative(neg5)));
+
+  // test cases for copy
   }
 
 }
