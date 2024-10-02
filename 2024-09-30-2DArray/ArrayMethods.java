@@ -85,8 +85,23 @@ public static void replaceNegative(int[][] vals) {
 //DO NOT use any built in methods that "copy" an array.
 //You SHOULD write a helper method for this.
 //If you don't see a good way to do that, you should stop and look at prior methods.
+
+//helper function to copy 1D array
+public static int[] copy(int[] row) {
+  int[] copyRows = new int[row.length];
+  for (int i = 0; i < row.length; i++) {
+    copyRows[i] = row[i];
+  }
+  return copyRows;
+}
+
 public static int[][] copy(int[][] nums) {
-  return null; //placeholder so it compiles
+  int[][] copyArr = new int[nums.length] {
+    for (int i = 0; i < nums.length; i++) {
+      copyArr[i] = copy(nums[i])
+    }
+  }
+  return copyArr; //placeholder so it compiles
 }
 
 public static void main(String[] args) {
