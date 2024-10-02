@@ -96,18 +96,18 @@ public static int[] copy(int[] row) {
 }
 
 public static int[][] copy(int[][] nums) {
-  int[][] copyArr = new int[nums.length][] {
+  int[][] copyArr = new int[nums.length][];
     for (int i = 0; i < nums.length; i++) {
       copyArr[i] = copy(nums[i]);
     }
   }
-  return copyArr; //placeholder so it compiles
+  return copyArr;
 }
 
 public static void main(String[] args) {
   //test cases for arrToSTring (2D Array)
   int[][] nums1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-  System.out.println("Expected: [[1, 2, 3], [4, 5, 6]], [7, 8, 9]] - Output: " + arrToString(nums1));
+  System.out.println("Expected: [[1, 2, 3], [4, 5, 6], [7, 8, 9]] - Output: " + arrToString(nums1));
   int[][] nums2 = {};
   System.out.println("Expected: [] - Output: " + arrToString(nums2));
   int[][] nums3 = {{}, {1, 2, 3}};
@@ -164,7 +164,7 @@ public static void main(String[] args) {
   int[][] original2 = {{}, {4, 5, 6}, {}};
   int[][] copy2 = copy(original2);
   System.out.println("Original: " + arrToString(original2));
-  System.out.println("Copy: " + arrayToString(copy2));
+  System.out.println("Copy: " + arrToString(copy2));
   System.out.println("Different address: " + (original2 != copy2));
   int[][] original3 = {{}};
   int[][] copy3 = copy(original3);
