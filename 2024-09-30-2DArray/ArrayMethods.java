@@ -97,9 +97,8 @@ public static int[] copy(int[] row) {
 
 public static int[][] copy(int[][] nums) {
   int[][] copyArr = new int[nums.length][];
-    for (int i = 0; i < nums.length; i++) {
-      copyArr[i] = copy(nums[i]);
-    }
+  for (int i = 0; i < nums.length; i++) {
+    copyArr[i] = copy(nums[i]);
   }
   return copyArr;
 }
@@ -126,6 +125,8 @@ public static void main(String[] args) {
   System.out.println("Expected: 0 - Output: " + arr2DSum(sums4));
   int[][] sums5 = {{}, {}};
   System.out.println("Expected: 0 - Output: " + arr2DSum(sums5));
+  int[][] sums6 = {{-3, 4, 0}, {-1, -10, -99}};
+  System.out.println("Expected: -109 - Output: " + arr2DSum(sums6));
 
   // test cases for swapRC
   int[][] swap1 = {{1, 2, 3}, {4, 5, 6}};
