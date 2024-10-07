@@ -8,22 +8,22 @@ public class ArrayDemo{
 
     // test cases for countZeros2D
     int[][] zeros1 = {{1, 0, 3}, {4, 5, 0}, {0, 8, 9}};
-    System.out.println("Expected: 3 - Output: " + countZeros2D(zeros1);
+    System.out.println("Expected: 3 - Output: " + countZeros2D(zeros1));
     int[][] zeros2 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    System.out.println("Expected: 0 - Output: " + countZeros2D(zeros2);
+    System.out.println("Expected: 0 - Output: " + countZeros2D(zeros2));
     int[][] zeros3 = {{}, {0}, {}};
-    System.out.println("Expected: 1 - Output: " + countZeros2D(zeros3);
+    System.out.println("Expected: 1 - Output: " + countZeros2D(zeros3));
     int[][] zeros4 = {{}, {}};
-    System.out.println("Expected: 0 - Output: " + countZeros2D(zeros4);
+    System.out.println("Expected: 0 - Output: " + countZeros2D(zeros4));
 
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
   public static String arrToString(int[]ary){
     String aString = "[";
-    for (int i=0; i < nums.length && nums.length > 0; i++) {
-      aString += nums[i];
-      if (i != nums.length -1) {
+    for (int i=0; i < ary.length && ary.length > 0; i++) {
+      aString += ary[i];
+      if (i != ary.length -1) {
         aString += ", ";
       }
     }
@@ -50,7 +50,7 @@ public class ArrayDemo{
     for (int i = 0; i < nums.length; i++) {
       for (int j = 0; j < nums[i].length; j++) {
         if (nums[i][j] == 0) {
-          count += 0;
+          count += 1;
         }
       }
     }
