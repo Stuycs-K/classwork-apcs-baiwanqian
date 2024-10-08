@@ -26,6 +26,24 @@ public class ArrayDemo{
     int[][] sum4 = {{}, {}};
     System.out.println("Expected: 0 - Output: " + arr2DSum(sum4));
 
+    // test cases for replaceNegative
+    int[][] neg1 = {{-1, -9, 3}, {-4, -2, 6}, {1, 0, -3}};
+    replaceNegative(neg1);
+    System.out.println("Expected: [[1, 0, 3], [0, 1, 6], [1, 0, 1]] - Output: " + arrToString(neg1));
+    int[][] neg2 = {{-1, -9, -3}, {-4, -2, -6}, {-1, -5, -3}};
+    replaceNegative(neg2);
+    System.out.println("Expected: [[1, 0, 0], [0, 1, 0], [0, 0, 1]] - Output: " + arrToString(neg2));
+    int[][] neg3 = {{1, 2}, {3, 4}};
+    replaceNegative(neg3);
+    System.out.println("Expected: [[1, 2], [3, 4]] - Output: " + arrToString(neg3));
+    int[][] neg4 = {{}};
+    replaceNegative(neg4);
+    System.out.println("Expected: [[]] - Output: " + arrToString(neg4));
+    int[][] neg5 = {{}, {-4, -2, 6}, {}};
+    replaceNegative(neg5);
+    System.out.println("Expected: [[], [0, 1, 6]], []] - Output: " + arrToString(neg5));
+
+
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
@@ -86,7 +104,17 @@ public class ArrayDemo{
   //that negative with the value 1
   //-All other negatives replace with 0
   public static void replaceNegative(int[][] vals){
-
+    for (int i = 0; i < vals.length; i++) {
+      for (int n = 0; n < vals[i].length; n++) {
+        if (vals[i][n] < 0) {
+          if (i == n) {
+            vals[i][n] = 1;
+          } else {
+            vals[i][n] = 0;
+          }
+        }
+      }
+    }
   }
 
   //4. Make a copy of the given 2d array.
