@@ -16,6 +16,16 @@ public class ArrayDemo{
     int[][] zeros4 = {{}, {}};
     System.out.println("Expected: 0 - Output: " + countZeros2D(zeros4));
 
+    // test cases for arr2DSum
+    int[][] sum1 = {{-1, 0, -3}, {4, -5, 0}, {0, 8, -9}};
+    System.out.println("Expected: -6 - Output: " + arr2DSum(sum1));
+    int[][] sum2 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    System.out.println("Expected: 45 - Output: " + arr2DSum(sum2));
+    int[][] sum3 = {{}, {1}, {}};
+    System.out.println("Expected: 1 - Output: " + arr2DSum(sum3));
+    int[][] sum4 = {{}, {}};
+    System.out.println("Expected: 0 - Output: " + arr2DSum(sum4));
+
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
@@ -61,7 +71,13 @@ public class ArrayDemo{
   /*Return the sum of all of the values in the 2D array
    *Use a nested loop instead of a helper method*/
   public static int arr2DSum(int[][]nums){
-    return 0;
+    int sum = 0;
+    for (int i = 0; i < nums.length; i++) {
+      for (int j = 0; j < nums[i].length; j++) {
+        sum += nums[i][j];
+      }
+    }
+    return sum;
   }
 
   //3. Modify a given 2D array of integer as follows:
