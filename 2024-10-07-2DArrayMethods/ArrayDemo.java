@@ -6,6 +6,14 @@ public class ArrayDemo{
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
 
+    // comparison of Arrays.toString() with my arrayToString()
+    int[][] str1 = {{1, 0, -3}, {4, 5, 0}, {0, -8, 9}};
+    System.out.println("Expected: " + Arrays.deepToString(str1) + " - Output: " + arrToString(str1));
+    int[][] str2 = {{0}, {}, {1}};
+    System.out.println("Expected: " + Arrays.deepToString(str2) + " - Output: " + arrToString(str2));
+    int[][] str3 = {{}};
+    System.out.println("Expected: " + Arrays.deepToString(str3) + " - Output: " + arrToString(str3));
+
     // test cases for countZeros2D
     int[][] zeros1 = {{1, 0, 3}, {4, 5, 0}, {0, 8, 9}};
     System.out.println("Expected: 3 - Output: " + countZeros2D(zeros1));
@@ -29,47 +37,47 @@ public class ArrayDemo{
     // test cases for replaceNegative
     int[][] neg1 = {{-1, -9, 3}, {-4, -2, 6}, {1, 0, -3}};
     replaceNegative(neg1);
-    System.out.println("Expected: [[1, 0, 3], [0, 1, 6], [1, 0, 1]] - Output: " + arrToString(neg1));
+    System.out.println("Expected: [[1, 0, 3], [0, 1, 6], [1, 0, 1]] - Output: " + Arrays.deepToString(neg1));
     int[][] neg2 = {{-1, -9, -3}, {-4, -2, -6}, {-1, -5, -3}};
     replaceNegative(neg2);
-    System.out.println("Expected: [[1, 0, 0], [0, 1, 0], [0, 0, 1]] - Output: " + arrToString(neg2));
+    System.out.println("Expected: [[1, 0, 0], [0, 1, 0], [0, 0, 1]] - Output: " + Arrays.deepToString(neg2));
     int[][] neg3 = {{1, 2}, {3, 4}};
     replaceNegative(neg3);
-    System.out.println("Expected: [[1, 2], [3, 4]] - Output: " + arrToString(neg3));
+    System.out.println("Expected: [[1, 2], [3, 4]] - Output: " + Arrays.deepToString(neg3));
     int[][] neg4 = {{}};
     replaceNegative(neg4);
-    System.out.println("Expected: [[]] - Output: " + arrToString(neg4));
+    System.out.println("Expected: [[]] - Output: " + Arrays.deepToString(neg4));
     int[][] neg5 = {{}, {-4, -2, 6}, {}};
     replaceNegative(neg5);
-    System.out.println("Expected: [[], [0, 1, 6]], []] - Output: " + arrToString(neg5));
+    System.out.println("Expected: [[], [0, 1, 6]], []] - Output: " + Arrays.deepToString(neg5));
 
     // test cases for copy
     int[][] original1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     int[][] copy1 = copy(original1);
-    System.out.println("Original: " + arrToString(original1));
-    System.out.println("Copy: " + arrToString(copy1));
+    System.out.println("Original: " + Arrays.deepToString(original1));
+    System.out.println("Copy: " + Arrays.deepToString(copy1));
     System.out.println("Different address: " + (original1 != copy1));
     original1[0][0] = 100;
-    System.out.println("Modified Original: " + arrToString(original1));
-    System.out.println("Not Modified Copy: " + arrToString(copy1));
+    System.out.println("Modified Original: " + Arrays.deepToString(original1));
+    System.out.println("Not Modified Copy: " + Arrays.deepToString(copy1));
     int[][] original2 = {{}, {4, 5, 6}, {}};
     int[][] copy2 = copy(original2);
-    System.out.println("Original: " + arrToString(original2));
-    System.out.println("Copy: " + arrToString(copy2));
+    System.out.println("Original: " + Arrays.deepToString(original2));
+    System.out.println("Copy: " + Arrays.deepToString(copy2));
     System.out.println("Different address: " + (original2 != copy2));
     int[][] original3 = {{}};
     int[][] copy3 = copy(original3);
-    System.out.println("Original: " + arrToString(original3));
-    System.out.println("Copy: " + arrToString(copy3));
+    System.out.println("Original: " + Arrays.deepToString(original3));
+    System.out.println("Copy: " + Arrays.deepToString(copy3));
     System.out.println("Different address: " + (original3 != copy3));
 
     // test cases for swapRC
     int[][] swap1 = {{1, 2, 3}, {4, 5, 6}};
-    System.out.println("Expected: [[1, 4], [2, 5], [3, 6]] - Output: " + arrToString(swapRC(swap1)));
+    System.out.println("Expected: [[1, 4], [2, 5], [3, 6]] - Output: " + Arrays.deepToString(swapRC(swap1)));
     int[][] swap2 = {{1, 2}, {3, 4}, {5, 6}};
-    System.out.println("Expected: [[1, 3, 5], [2, 4, 6]] - Output: " + arrToString(swapRC(swap2)));
+    System.out.println("Expected: [[1, 3, 5], [2, 4, 6]] - Output: " + Arrays.deepToString(swapRC(swap2)));
     int[][] swap3 = {{12}};
-    System.out.println("Expected: [[12]] - Output: " + arrToString(swapRC(swap3)));
+    System.out.println("Expected: [[12]] - Output: " + Arrays.deepToString(swapRC(swap3)));
 
   }
 
