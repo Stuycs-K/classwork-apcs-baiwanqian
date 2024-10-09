@@ -43,6 +43,25 @@ public class ArrayDemo{
     replaceNegative(neg5);
     System.out.println("Expected: [[], [0, 1, 6]], []] - Output: " + arrToString(neg5));
 
+    // test cases for copy
+    int[][] original1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int[][] copy1 = copy(original1);
+    System.out.println("Original: " + arrToString(original1));
+    System.out.println("Copy: " + arrToString(copy1));
+    System.out.println("Different address: " + (original1 != copy1));
+    original1[0][0] = 100;
+    System.out.println("Modified Original: " + arrToString(original1));
+    System.out.println("Not Modified Copy: " + arrToString(copy1));
+    int[][] original2 = {{}, {4, 5, 6}, {}};
+    int[][] copy2 = copy(original2);
+    System.out.println("Original: " + arrToString(original2));
+    System.out.println("Copy: " + arrToString(copy2));
+    System.out.println("Different address: " + (original2 != copy2));
+    int[][] original3 = {{}};
+    int[][] copy3 = copy(original3);
+    System.out.println("Original: " + arrToString(original3));
+    System.out.println("Copy: " + arrToString(copy3));
+    System.out.println("Different address: " + (original3 != copy3));
 
   }
 
@@ -122,8 +141,22 @@ public class ArrayDemo{
   //DO NOT use any built in methods that "copy" an array.
   //You SHOULD write a helper method for this.
   //If you don't see a good way to do that, you should stop and look at prior methods.
-  public static int[][] copy(int[][] nums){
-    return new int[1][1];
+  //helper function to copy 1D array
+
+  public static int[] copy(int[] row) {
+    int[] copyRows = new int[row.length];
+    for (int i = 0; i < row.length; i++) {
+      copyRows[i] = row[i];
+    }
+    return copyRows;
+  }
+
+  public static int[][] copy(int[][] nums) {
+    int[][] copyArr = new int[nums.length][];
+    for (int i = 0; i < nums.length; i++) {
+      copyArr[i] = copy(nums[i]);
+    }
+    return copyArr;
   }
 
   //5. Rotate an array by returning a new array with the rows and columns swapped.
