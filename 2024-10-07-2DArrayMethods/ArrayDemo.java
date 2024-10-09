@@ -79,6 +79,14 @@ public class ArrayDemo{
     int[][] swap3 = {{12}};
     System.out.println("Expected: [[12]] - Output: " + Arrays.deepToString(swapRC(swap3)));
 
+    // test cases for htmlTable
+    int[][] table1 = {{1, 2}, {-5, -6}};
+    System.out.println("Expected: <table><tr><td>1</td><td>2</td></tr><tr><td>-5</td><td>-6</td></tr></table> - Output: " + htmlTable(table1));
+    int[][] table2 = {{}, {0}};
+    System.out.println("Expected: <table><tr></tr><tr><td>0</td></tr></table> - Output: " + htmlTable(table2));
+    int[][] table3 = {{}, {}, {}};
+    System.out.println("Expected: <table><tr></tr><tr></tr><tr></tr></table> - Output: " + htmlTable(table3));
+
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
@@ -196,7 +204,20 @@ public class ArrayDemo{
   //   Note there is no whitespace in the string, it all one line with no spaces/tabs.
   //   e.g. htmlTable(new int[][]{{1,2},{3}})  returns:
   // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
-  public static String htmlTable(int[][]nums){
-    return "";
+  public static String htmlTable(int[] nums) {
+    String row = "<tr>";
+    for (int i = 0; i < nums.length; i ++) {
+      row += "<td>" + nums[i] + "</td>";
+    }
+    return row + "</tr>";
   }
+
+  public static String htmlTable(int[][]nums) {
+    String table = "<table>";
+    for (int i = 0; i < nums.length; i++) {
+      table += htmlTable(nums[i]);
+      }
+    return table + "</table>";
+  }
+
 }
