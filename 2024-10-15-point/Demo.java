@@ -5,7 +5,7 @@ public class Demo{
   to the others.
   */
   public static double distance(Point a, Point b){
-    return Math.sqrt((b.getX() - a.getX()) * (b.getX() - a.getX()) + ((b.getY() - a.getY())*(b.getY()-a.getY())));
+    return Math.sqrt(Math.pow(b.getX() - a.getX(), 2) + Math.pow(b.getY() - a.getY(), 2));
   }
 
   public static void main(String[]args){
@@ -18,5 +18,23 @@ public class Demo{
     System.out.println( Point.distance(p1,p2));
     System.out.println( p1.distanceTo(p2));
     System.out.println( p1Copy);
+    Point n1 = new Point(0,0);
+    Point n2 = new Point(0,0);
+    Point n3 = new Point(-9,0);
+    Point n1Copy = new Point(n1);
+    System.out.println( n3);
+    System.out.println( distance(n1,n2));
+    System.out.println( Point.distance(n1,n2));
+    System.out.println( n1.distanceTo(n2));
+    System.out.println( n1Copy);
+    Point e1 = new Point(-999,1999);
+    Point e2 = new Point(1,1);
+    Point e3 = new Point(0,0);
+    Point e1Copy = new Point(e1);
+    System.out.println( e3);
+    System.out.println( distance(e1,e2));
+    System.out.println( Point.distance(e1,e2));
+    System.out.println( e1.distanceTo(e2));
+    System.out.println( e1Copy);
   }
 }
