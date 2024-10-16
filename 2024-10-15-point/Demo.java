@@ -36,5 +36,16 @@ public class Demo{
     System.out.println( Point.distance(e1,e2));
     System.out.println( e1.distanceTo(e2));
     System.out.println( e1Copy);
-  }
+
+    // Equilateral triangle
+    Point point1 = new Point(0, 0);
+    Point point2 = new Point(1, 0);
+    Point point3 = new Point(0.5, Math.sqrt(3) / 2);
+    System.out.println(point1);
+    System.out.println(point2);
+    System.out.println(point3);
+    System.out.println("Distance between p1 and p2: " + distance(point1, point2));
+    System.out.println("Distance between p2 and p3: " + distance(point2, point3));
+    System.out.println("Distance between p1 and p3: " + distance(point1, point3));
+      }
 }
