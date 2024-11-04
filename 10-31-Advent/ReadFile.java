@@ -12,9 +12,11 @@ public class ReadFile {
       File file = new File("ReadFile.java");//1
       Scanner input = new Scanner(file);
       while(input.hasNextLine()){
-        if (counter % 2 == 0) {
+        if (input.nextLine().contains("{")) {
+          //make a variable adn then save it and then print that
           System.out.println(input.nextLine());
-        } else {
+        }
+        else {
           input.nextLine();
         }
         counter++;
