@@ -34,9 +34,9 @@ public class TriangleTester {
         int[] col2 = new int[3];
         int[] col3 = new int[3];
         for (int i = 0; i < 3; i++) {
-          col1[i] == input.nextInt();
-          col2[i] == input.nextInt();
-          col3[i] == input.nextInt();
+          col1[i] = input.nextInt();
+          col2[i] = input.nextInt();
+          col3[i] = input.nextInt();
         }
         if (isValidTriangle(col1[0], col1[1], col1[2])) {
           validTriangles++;
