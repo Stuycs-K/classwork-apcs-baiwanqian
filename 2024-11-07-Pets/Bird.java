@@ -4,7 +4,7 @@ public class Bird extends Animal {
 
 
   //4.
-  public String getHeight(){
+  public Double getHeight(){
     return height;
   }
   public String getColor(){

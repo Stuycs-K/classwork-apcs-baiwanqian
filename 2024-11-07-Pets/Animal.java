@@ -33,4 +33,6 @@ public class Animal {
   }
   public int getAge(){
     return age;
+  }
+
 }
