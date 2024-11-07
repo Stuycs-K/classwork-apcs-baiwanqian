@@ -21,7 +21,7 @@ public class Animal {
   */
   public void speak(){
     System.out.println("My name is " + getName() + ".");
-    System.out.println("I am " + age + " years old.");
+    System.out.println("I am " + getAge() + " years old.");
     System.out.println("I say " + getNoise() + ".");
   }
 
@@ -31,4 +31,6 @@ public class Animal {
   public String getNoise(){
     return noise;
   }
+  public int getAge(){
+    return age;
 }
