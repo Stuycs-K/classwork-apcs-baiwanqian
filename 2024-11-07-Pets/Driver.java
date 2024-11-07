@@ -1,5 +1,10 @@
 public class Driver{
   public static void main(String[] args){
+
+    // Assigning a animal to a bird does not work
+    // since bird is an extension of animal
+    //
+
     Animal cow =  new Animal("moo", 3, "cow");
     cow.speak();
 
