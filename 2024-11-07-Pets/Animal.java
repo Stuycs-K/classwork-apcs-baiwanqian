@@ -1,3 +1,6 @@
+// We overrode the getName() method to return "The Mighty" + name
+// instead of just name. We changed getName() for Bird.java but Animal.java
+//still has its getName(), which we can call with super.getName().
 public class Animal {
   private String noise;
   private int age;
