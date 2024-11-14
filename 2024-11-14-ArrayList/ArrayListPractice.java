@@ -33,5 +33,20 @@ public class ArrayListPractice {
     return newList;
   }
 
-  
+  public static ArrayList<String> mixLists( ArrayList<String> a,  ArrayList<String> b){
+  //return a new ArrayList that has all values of a and b in alternating order that is:
+  //a[0], b[0], a[1], b[1]...
+  //If one list is longer than the other, just attach the remaining values to the end.
+    ArrayList<String> newList = new ArrayList<String>(a.size() + b.size());
+    for (int i = 0; i < newList.size(); i++) {
+      if (i < a.size()) {
+        newList.add(a.get(i));
+      }
+      if (i < b.size()) {
+        newList.add(b.get(i));
+      }
+    }
+    return newList;
+  }
+
 }
