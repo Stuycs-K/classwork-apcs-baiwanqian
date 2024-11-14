@@ -38,7 +38,7 @@ public class ArrayListPractice {
   //a[0], b[0], a[1], b[1]...
   //If one list is longer than the other, just attach the remaining values to the end.
     ArrayList<String> newList = new ArrayList<String>(a.size() + b.size());
-    for (int i = 0; i < newList.size(); i++) {
+    for (int i = 0; i < a.size() || i < b.size(); i++) {
       if (i < a.size()) {
         newList.add(a.get(i));
       }
