@@ -24,4 +24,14 @@ public class ArrayListPractice {
     }
   }
 
+  public static ArrayList<String> makeReversedList( ArrayList<String> original){
+    //return a new ArrayList that is in the reversed order of the original.
+    ArrayList<String> newList = new ArrayList<String>(original.size());
+    for (int i = 0; i < newList.size(); i++) {
+      newList.set(i, original.get(original.size()- (i +1)));
+    }
+    return newList;
+  }
+
+  
 }
