@@ -40,7 +40,7 @@ public class D3P2 {
   }
 
   public static void main(String[] args) {
-    System.out.println(countTrianglesB("inputTri.txt"));
+    System.out.println(countTrianglesB("D3Input.txt"));
   }
 
 }
