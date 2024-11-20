@@ -1,44 +1,29 @@
 import java.security.*;
 
 public class Day5 {
-// really slow :(
-  public static String retrievePassword(String doorID) {
-    char[] password = new char[8];
-    int index = 0;
-    int count = 0;
-    try {
-      MessageDigest md = MessageDigest.getInstance("MD5");
-        while (count < 8) {
-          byte[] array = md.digest((doorID + index).getBytes("UTF-8"));
-          // convert to hexadecimal string
-          String hex = bytesToHex(array);
-          if (hex.substring(0,5).equals("00000")) {
-            password[count] = hex.charAt(5);
-            count++;
-        }
-        index++;
-      }
-    } catch (Exception e) {
-      System.out.println("Error " + e);
-    }
-    return new String(password);
-  }
+  // very very slow :(
 
-  public static String retrievePasswordPart2(String doorID) {
+  private static String computePassword(String doorID, boolean positional) {
     char[] password = new char[8];
     boolean[] positionFull = new boolean[8];
-    int count = 0;
-    int index = 0;
+    int index = 0, count = 0;
     try {
       MessageDigest md = MessageDigest.getInstance("MD5");
       while (count < 8) {
         byte[] array = md.digest((doorID + index).getBytes("UTF-8"));
         String hex = bytesToHex(array);
-        if (hex.substring(0,5).equals("00000")) {
-          int position = hex.charAt(5) - '0';
-          if (position >= 0 && position < 8 && !positionFull[position]) {
-            password[position] = hex.charAt(6);
-            positionFull[position] = true;
+        if (hex.substring(0, 5).equals("00000")) {
+          if (positional) {
+            // part 2
+            int position = hex.charAt(5) - '0';
+            if (position >= 0 && position < 8 && !positionFull[position]) {
+              password[position] = hex.charAt(6);
+              positionFull[position] = true;
+              count++;
+            }
+          } else {
+            // part 1
+            password[count] = hex.charAt(5);
             count++;
           }
         }
@@ -48,6 +33,14 @@ public class Day5 {
       System.out.println("Error: " + e);
     }
     return new String(password);
+  }
+
+  public static String retrievePassword(String doorID) {
+    return computePassword(doorID, false);
+  }
+
+  public static String retrievePasswordPart2(String doorID) {
+    return computePassword(doorID, true);
   }
 
   public static String bytesToHex(byte[] bytes) {
