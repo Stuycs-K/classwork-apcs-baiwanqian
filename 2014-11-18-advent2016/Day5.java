@@ -20,11 +20,13 @@ public class Day5 {
               password[position] = hex.charAt(6);
               positionFull[position] = true;
               count++;
+              printTypingEffect(password);
             }
           } else {
             // part 1
             password[count] = hex.charAt(5);
             count++;
+            printTypingEffect(password);
           }
         }
         index++;
@@ -32,6 +34,7 @@ public class Day5 {
     } catch (Exception e) {
       System.out.println("Error: " + e);
     }
+    System.out.println();
     return new String(password);
   }
 
@@ -64,10 +67,23 @@ public class Day5 {
     return hexResult;
   }
 
+  private static void printTypingEffect(char[] password) {
+    System.out.print("\rPassword: ");
+    for (int i = 0; i < password.length; i++) {
+      if (password[i] == '\0') {
+        System.out.print("_");
+      } else {
+        System.out.print(password[i]);
+      }
+    }
+  }
+
   public static void main(String[] args) {
     String doorID = "cxdnnyjw";
-    System.out.println(retrievePassword(doorID));
-    System.out.println(retrievePasswordPart2(doorID));
+    System.out.println("\nPart 1:");
+    retrievePassword(doorID);
+    System.out.println("\nPart 2:");
+    retrievePasswordPart2(doorID);
   }
 
 }
