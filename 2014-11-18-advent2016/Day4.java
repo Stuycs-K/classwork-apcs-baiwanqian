@@ -13,14 +13,14 @@ public class Day4 {
         String encrypted = input.nextLine();
         int lastDashIndex = encrypted.lastIndexOf("-");
         int firstBracketIndex = encrypted.indexOf("[");
-        String name = encrypted.substring(0, lastDashIndex).replace("-", "");
+        String name = encrypted.substring(0, lastDashIndex);
         int sectorID = Integer.parseInt(encrypted.substring(lastDashIndex + 1, firstBracketIndex));
         String checksum = encrypted.substring(firstBracketIndex + 1, encrypted.length() - 1);
 
         if (checksum.equals(realCheckSum(name))) {
           sum += sectorID;
-          if (decryptName(name, sectorID).contains("north")) {
-            System.out.println("north pole objects " + sectorID);
+          if (decryptName(name, sectorID).contains("northpole object")) {
+            System.out.println("north pole objects room: " + sectorID);
           }
         }
       }
@@ -44,7 +44,7 @@ public class Day4 {
     for (int i = 0; i < 5; i++) {
       int maxIndex = -1;
       int maxCount = -1;
-      for (int j = 0; j < 26; j++) {
+      for (int j = 0; j < frequency.length; j++) {
         if (frequency[j] > maxCount ||
           (frequency[j] == maxCount && (maxIndex == -1 || j < maxIndex))) {
             maxCount = frequency[j];
@@ -60,11 +60,11 @@ public class Day4 {
     }
 
   public static String decryptName(String name, int sectorID) {
-    String decryptedName = " ";
+    String decryptedName = "";
     for (int i = 0; i < name.length(); i++) {
       char c = name.charAt(i);
       if (c < 'a' || c > 'z') {
-        decryptedName += "";
+        decryptedName += " ";
       } else {
         char shifted = (char)((c - 'a' + sectorID) % 26 + 'a');
         decryptedName += shifted;
