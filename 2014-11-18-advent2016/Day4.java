@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Day4 {
 
-  public static int validSectorSums(String filename) {
+  public static int encryptedRoomName(String filename) {
     int sum = 0;
     try {
       File file = new File(filename);
@@ -19,15 +19,18 @@ public class Day4 {
 
         if (checksum.equals(realCheckSum(name))) {
           sum += sectorID;
+          if (decryptName(name, sectorID).contains("north")) {
+            System.out.println("north pole objects " + sectorID);
+          }
         }
       }
+
       input.close();
       } catch (FileNotFoundException ex) {
         System.out.println("File not found");
       }
       return sum;
     }
-
 
   public static String realCheckSum(String name) {
     int[] frequency = new int[26];
@@ -56,8 +59,22 @@ public class Day4 {
       return new String(checksum);
     }
 
+  public static String decryptName(String name, int sectorID) {
+    String decryptedName = " ";
+    for (int i = 0; i < name.length(); i++) {
+      char c = name.charAt(i);
+      if (c < 'a' || c > 'z') {
+        decryptedName += "";
+      } else {
+        char shifted = (char)((c - 'a' + sectorID) % 26 + 'a');
+        decryptedName += shifted;
+      }
+    }
+    return decryptedName;
+  }
+
   public static void main(String[] args) {
-    System.out.println(validSectorSums("Day4Input.txt"));
+    System.out.println(encryptedRoomName("Day4Input.txt"));
   }
 
 }
