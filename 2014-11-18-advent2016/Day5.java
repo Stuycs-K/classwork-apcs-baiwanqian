@@ -24,6 +24,32 @@ public class Day5 {
     return new String(password);
   }
 
+  public static String retrievePasswordPart2(String doorID) {
+    char[] password = new char[8];
+    boolean[] positionFull = new boolean[8];
+    int count = 0;
+    int index = 0;
+    try {
+      MessageDigest md = MessageDigest.getInstance("MD5");
+      while (count < 8) {
+        byte[] array = md.digest((doorID + index).getBytes("UTF-8"));
+        String hex = bytesToHex(array);
+        if (hex.substring(0,5).equals("00000")) {
+          int position = hex.charAt(5) - '0';
+          if (position >= 0 && position < 8 && !positionFull[position]) {
+            password[position] = hex.charAt(6);
+            positionFull[position] = true;
+            count++;
+          }
+        }
+        index++;
+      }
+    } catch (Exception e) {
+      System.out.println("Error: " + e);
+    }
+    return new String(password);
+  }
+
   public static String bytesToHex(byte[] bytes) {
     String hexString = "0123456789abcdef";
     String hexResult = "";
@@ -48,6 +74,7 @@ public class Day5 {
   public static void main(String[] args) {
     String doorID = "cxdnnyjw";
     System.out.println(retrievePassword(doorID));
+    System.out.println(retrievePasswordPart2(doorID));
   }
 
 }
