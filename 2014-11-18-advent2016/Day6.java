@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Day6 {
 
-  public static String correctMessage(String filename) {
+  public static String correctMessage(String filename, boolean isPart2) {
     String message = "";
     try {
       File file = new File(filename);
@@ -17,16 +17,30 @@ public class Day6 {
           frequencies[i][c - 'a']++;
         }
       }
-      for (int col = 0; col < frequencies.length; col++) {
-        int mostCount = 0;
-        char mostChar = 'a';
-        for (int i = 0; i < frequencies[col].length; i++) {
-          if (frequencies[col][i] > mostCount) {
-            mostCount = frequencies[col][i];
-            mostChar = (char)('a' + i);
+      if (isPart2) {
+        for (int col = 0; col < frequencies.length; col++) {
+          int leastCount = 2147483647;
+          char leastChar = 'a';
+          for (int i = 0; i < frequencies[col].length; i++) {
+            if (frequencies[col][i] > 0 && frequencies[col][i] < leastCount) {
+              leastCount = frequencies[col][i];
+              leastChar = (char)('a' + i);
+            }
           }
+          message += leastChar;
         }
-        message += mostChar;
+      } else {
+        for (int col = 0; col < frequencies.length; col++) {
+          int mostCount = 0;
+          char mostChar = 'a';
+          for (int i = 0; i < frequencies[col].length; i++) {
+            if (frequencies[col][i] > mostCount) {
+              mostCount = frequencies[col][i];
+              mostChar = (char)('a' + i);
+            }
+          }
+          message += mostChar;
+        }
       }
       input.close();
     } catch (FileNotFoundException ex) {
@@ -37,7 +51,8 @@ public class Day6 {
 
   public static void main(String[] args) {
     String filename = "Day6Input.txt";
-    System.out.println(correctMessage(filename));
+    System.out.println(correctMessage(filename, false));
+    System.out.println(correctMessage(filename, true));
   }
 
 }
