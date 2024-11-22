@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Day8 {
 
-  public static int countLitPixels(String filename) {
+  public static int countLitPixels(String filename, boolean decodeScreen) {
     int count = 0;
     int height = 6;
     int width = 50;
@@ -47,10 +47,14 @@ public class Day8 {
         }
       }
       input.close();
-      for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; j++) {
-          if (screenIsLit[i][j]) {
-            count++;
+      if (decodeScreen) {
+        printDecodeMessage(screenIsLit);
+      } else {
+        for (int i = 0; i < height; i++) {
+          for (int j = 0; j < width; j++) {
+            if (screenIsLit[i][j]) {
+              count++;
+            }
           }
         }
       }
@@ -60,9 +64,28 @@ public class Day8 {
     return count;
   }
 
+  public static void printDecodeMessage(boolean[][] screen) {
+    int height = screen.length;
+    int width = screen[0].length;
+    for (int col = 0; col < width; col += 5) {
+      for (int row = 0; row < height; row ++) {
+        for (int subCol = col; subCol < col + 5 && subCol < width; subCol++) {
+          if (screen[row][subCol]) {
+            System.out.print("#");
+          } else {
+            System.out.print(".");
+          }
+        }
+        System.out.print("\n");
+      }
+      System.out.print("\n");
+    }
+  }
+
   public static void main(String[] args) {
     String filename = "Day8Input.txt";
-    System.out.println(countLitPixels(filename));
+    System.out.println(countLitPixels(filename, false));
+    countLitPixels(filename, true);
   }
 
 }
