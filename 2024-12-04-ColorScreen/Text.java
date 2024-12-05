@@ -21,7 +21,7 @@ public static final String SHOW_CURSOR =  "\033[?25h";
 public static final String RESET = "\033[0m"+SHOW_CURSOR;
 
 //use this to convert from color to background (30 to 37 becomes 40 to 47)
-public static int  background(int color){
+public static int background(int color){
   return color + 10;
 }
 
