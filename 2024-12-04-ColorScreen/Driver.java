@@ -45,7 +45,16 @@ public class Driver {
 
   public static void drawHorizontalSeperator(Text text) {
     text.setBackgroundColor(4);
-    for (int i = )
+    for (int i = 1; i <= 80; i++) {
+      text.moveCursor(3, i);
+      text.print("-");
+    }
+    text.resetColor();
+  }
+
+  public static void drawInMiddle(Text text) {
+    text.moveCursor(15, 35);
+    text.print("^ ^");
   }
 
   public static void main(String[] args) {
