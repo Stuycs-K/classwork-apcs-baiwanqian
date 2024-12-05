@@ -58,7 +58,13 @@ public class Driver {
   }
 
   public static void main(String[] args) {
-
+    Text text = new Text();
+    text.clearScreen();
+    drawBorder(text);
+    displayRandom(text);
+    drawHorizontalSeperator(text);
+    drawInMiddle(text);
+    text.moveCursor(31, 1);
   }
 
 }
