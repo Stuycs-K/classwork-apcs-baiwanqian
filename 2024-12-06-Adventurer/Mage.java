@@ -12,6 +12,10 @@ public class Mage extends Adventurer {
     return "Mana";
   }
 
+  public int getSpecial() {
+    return mana;
+  }
+
   public void setSpecial(int n) {
     this.mana = n;
   }
@@ -23,13 +27,13 @@ public class Mage extends Adventurer {
   public String attack(Adventurer other) {
     int damage = 2;
     other.applyDamage(damage);
-    return this.getName() + " chucks a spell on " + other.getName() + " , dealing " + damage + " damage.";
+    return this.getName() + " chucks a spell on " + other.getName() + ", dealing " + damage + " damage.";
   }
 
   public String support(Adventurer other) {
     int heal = 3;
     other.setHP(other.getHP() + heal);
-    return this.getName() + " casts a heal on " + other.getName() + " , healing " + heal + " HP.";
+    return this.getName() + " casts a heal on " + other.getName() + ", healing " + heal + " HP.";
   }
 
   public String support() {
@@ -43,7 +47,7 @@ public class Mage extends Adventurer {
       int specialDamage = 5;
       other.applyDamage(specialDamage);
       this.mana -= 5;
-      return this.getName() + " chucks a stronger spell on " + other.getName() + " , dealing " + damage + " damage.";
+      return this.getName() + " chucks a stronger spell on " + other.getName() + ", dealing " + specialDamage + " damage.";
     } else {
       return this.getName() + " doesn't have enoguh mana to cast a special attack.";
     }
