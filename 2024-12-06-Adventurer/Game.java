@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Game {
+
   public static void main(String[] args) {
     Scanner userInput = new Scanner(System.in);
 
@@ -9,9 +10,9 @@ public class Game {
 
     System.out.println("A");
 
-    boolean continue = true;
+    boolean runGame = true;
 
-    while (continue) {
+    while (runGame) {
       System.out.println(player.getName() + ": " + player.getHP() + "/" player.getMaxHP() +
       " HP, " + player.getSpecial() + "/" + player.getSpecialMax() + " " + player.getSpecialName();
       System.out.println(enemy.getName() + ": " + enemy.getHP() + "/" enemy.getMaxHP() +
@@ -24,7 +25,7 @@ public class Game {
 
       if (input.equals("quit")) {
         System.out.println("Logging out...");
-        continue = false;
+        runGame = false;
       } else if (input.equals("a")) || input.equals("attack") {
         System.out.println(player.attack(enemy));
       } else if (choice.equals("sp") || choice.equals("special")) {
@@ -35,5 +36,27 @@ public class Game {
         System.out.println("Input Invalid! Try again.");
         validInput = false;
       }
+
+      if (validInput && runGame) {
+        if (enemy.isAlive()) {
+          int enemyMove = (int) (Math.random() * 3);
+          if (enemyMove == 0) {
+            System.out.println(enemy.attack(player));
+          } else if (enemyMove == 1) {
+            System.out.println(enemy.specialAttackPlayer());
+          } else {
+            System.out.println(enemy.support());
+          }
+          if (!player.isAlive()) {
+            System.out.println("You were slain by the enemy.");
+            runGame = false;
+          }
+        } else {
+          System.out.println("You have slain the enemy!");
+        }
+      }
+    }
+    userInput.close();
   }
+
 }
