@@ -13,10 +13,10 @@ public class Game {
     boolean runGame = true;
 
     while (runGame) {
-      System.out.println(player.getName() + ": " + player.getHP() + "/" player.getMaxHP() +
-      " HP, " + player.getSpecial() + "/" + player.getSpecialMax() + " " + player.getSpecialName();
-      System.out.println(enemy.getName() + ": " + enemy.getHP() + "/" enemy.getMaxHP() +
-      " HP, " + enemy.getSpecial() + "/" + enemy.getSpecialMax() + " " + enemy.getSpecialName();
+      System.out.println(player.getName() + ": " + player.getHP() + "/" + player.getmaxHP() +
+      " HP, " + player.getSpecial() + "/" + player.getSpecialMax() + " " + player.getSpecialName());
+      System.out.println(enemy.getName() + ": " + enemy.getHP() + "/" + enemy.getmaxHP() +
+      " HP, " + enemy.getSpecial() + "/" + enemy.getSpecialMax() + " " + enemy.getSpecialName());
 
       boolean validInput = true;
 
@@ -26,11 +26,11 @@ public class Game {
       if (input.equals("quit")) {
         System.out.println("Logging out...");
         runGame = false;
-      } else if (input.equals("a")) || input.equals("attack") {
+      } else if (input.equals("a") || input.equals("attack")) {
         System.out.println(player.attack(enemy));
-      } else if (choice.equals("sp") || choice.equals("special")) {
-        System.out.println(move = player.specialAttack(enemy));
-      } else if (choice.equals("su") || choice.equals("support")) {
+      } else if (input.equals("sp") || input.equals("special")) {
+        System.out.println(player.specialAttack(enemy));
+      } else if (input.equals("su") || input.equals("support")) {
         System.out.println(player.support());
       } else {
         System.out.println("Input Invalid! Try again.");
@@ -38,21 +38,22 @@ public class Game {
       }
 
       if (validInput && runGame) {
-        if (enemy.isAlive()) {
+        if (enemy.getHP() > 0) {
           int enemyMove = (int) (Math.random() * 3);
           if (enemyMove == 0) {
             System.out.println(enemy.attack(player));
           } else if (enemyMove == 1) {
-            System.out.println(enemy.specialAttackPlayer());
+            System.out.println(enemy.specialAttack(player));
           } else {
             System.out.println(enemy.support());
           }
-          if (!player.isAlive()) {
+          if (player.getHP() <= 0) {
             System.out.println("You were slain by the enemy.");
             runGame = false;
           }
-        } else {
+        } else if (enemy.getHP() <= 0) {
           System.out.println("You have slain the enemy!");
+          runGame = false;
         }
       }
     }
