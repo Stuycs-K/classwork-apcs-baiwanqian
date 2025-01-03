@@ -10,4 +10,12 @@ public class makeWords {
     }
   }
 
+  public static void main(String[] args) {
+    makeWords(2, "", "abc");
+    System.out.println();
+    makeWords(3, "", "xy");
+    System.out.println();
+    makeWords(3, "", "01");
+  }
+
 }
